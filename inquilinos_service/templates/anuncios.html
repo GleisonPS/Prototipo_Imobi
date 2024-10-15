@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anúncios Disponíveis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Anúncios Disponíveis</h1>
+
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-dismissible fade show mt-3" role="alert">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="row">
+            {% for anuncio in anuncios %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ anuncio[1] }}</h5>  
+                            <p class="card-text">{{ anuncio[2] }}</p>   
+                            <p class="card-text"><strong>Preço:</strong> R$ {{ anuncio[3] }}</p> 
+                            <p class="card-text"><strong>Cidade:</strong> {{ anuncio[4] }}</p>  
+                            <a href="{{ url_for('detalhes_anuncio', anuncio_id=anuncio[0]) }}" class="btn btn-primary">Ver Detalhes</a>  
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anúncios de Aluguel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Lista de Anúncios</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        {% for anuncio in anuncios %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ anuncio[1] }}</h5>  <!-- Título do anúncio -->
+                        <p class="card-text">{{ anuncio[2] }}</p>   <!-- Descrição do anúncio -->
+                        <p class="card-text"><strong>Preço: R$ {{ anuncio[3] }}</strong></p> <!-- Preço -->
+                        <form action="{{ url_for('solicitar_aluguel') }}" method="POST">
+                            <input type="hidden" name="anuncio_id" value="{{ anuncio[0] }}">  <!-- ID do anúncio -->
+                            <input type="hidden" name="inquilino_id" value="{{ inquilino_id }}"> <!-- ID do inquilino, deve ser definido -->
+                            <button type="submit" class="btn btn-primary">Tenho Interesse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
