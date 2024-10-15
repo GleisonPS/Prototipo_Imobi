@@ -6,25 +6,12 @@ app.secret_key = 'sua_chave_secreta'  # Para usar o flash
 
 def init_db():
     conn = sqlite3.connect('inquilinos.db')
-    conn2 = sqlite3.connect('anuncios.db')
-    conn3 = sqlite3.connect('aluguel.db')
+    
     
     c = conn.cursor()
     
     c.execute('''
         CREATE TABLE IF NOT EXISTS inquilinos (
-            id INTEGER PRIMARY KEY,
-            name TEXT,
-            email TEXT,
-            password TEXT,
-            telefone TEXT
-        )
-    ''')
-
-    c2 = conn2.cursor()
-    
-    c2.execute('''
-        CREATE TABLE IF NOT EXISTS anuncios (
             id INTEGER PRIMARY KEY,
             name TEXT,
             email TEXT,
@@ -74,10 +61,10 @@ def login():
     
 @app.route('/anuncios', methods=['GET'])
 def listar_anuncios():
-    conn = sqlite3.connect('anuncios.db')
+    conn = sqlite3.connect('ihouse.db')
     c = conn.cursor()
     
-    c.execute('SELECT * FROM anuncios')  # Buscando todos os anúncios
+    c.execute('SELECT * FROM imoveis')  # Buscando todos os anúncios
     anuncios = c.fetchall()
     
     conn.close()
