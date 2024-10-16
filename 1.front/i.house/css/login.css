@@ -1,0 +1,113 @@
+/* Estilo geral */
+body {
+    font-family: "Poppins", sans-serif;
+    color: #0c0c0c;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+
+/* Header */
+.header_section {
+    background-color: #155263;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.header_section h1 {
+    font-size: 2.5em;
+}
+
+
+
+/* Login Section */
+.login_section {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.login_container {
+    background-color: #ffffff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.login_container h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #155263;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #ff6f3c;
+    box-shadow: 0 0 5px rgba(255, 111, 60, 0.5);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6f3c;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #e65c2f;
+}
+
+form p {
+    text-align: center;
+}
+
+form a {
+    color: #ff6f3c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #e65c2f;
+}
+
+/* Footer */
+.footer_section {
+    background-color: #155263;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer_section p {
+    font-size: 1em;
+    margin: 0;
+}
