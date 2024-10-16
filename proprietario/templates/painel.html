@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Proprietário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Painel do Proprietário</h1>
+    
+    <h2>Meus Imóveis</h2>
+    <ul>
+        {% for imovel in imoveis %}
+        <li>
+            Tipo: {{ imovel.tipo }}, Cômodos: {{ imovel.comodos }}, Valor: {{ imovel.valor }}, Localização: {{ imovel.localizacao }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Cadastrar Novo Imóvel</h2>
+    <form action="/imoveis" method="POST">
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" required><br>
+
+        <label for="comodos">Cômodos:</label>
+        <input type="number" id="comodos" name="comodos" required><br>
+
+        <label for="valor">Valor:</label>
+        <input type="number" step="0.01" id="valor" name="valor" required><br>
+
+        <label for="localizacao">Localização:</label>
+        <input type="text" id="localizacao" name="localizacao" required><br>
+
+        <input type="hidden" name="proprietario_id" value="{{ request.args.get('proprietario_id') }}">
+        <button type="submit">Cadastrar Imóvel</button>
+    </form>
+</body>
+</html>
