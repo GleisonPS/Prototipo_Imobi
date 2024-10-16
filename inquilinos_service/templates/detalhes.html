@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Anúncio - I.House</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos Básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Estilos para o Header */
+        .header_section {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Estilos para a seção de detalhes do anúncio */
+        .details_section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .details_section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .details_section h2 {
+            margin-top: 20px;
+        }
+
+        .details_section p {
+            line-height: 1.6;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .details_section ul {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        .details_section ul li {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Botão para solicitar aluguel */
+        .solicitar-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .solicitar-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Estilos para o Footer */
+        .footer_section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header_section">
+        <div class="container">
+            <h1>Detalhes do Anúncio</h1>
+        </div>
+    </header>
+
+    <!-- Detalhes do Anúncio -->
+    <section class="details_section container">
+        <img src="images/casa-flordilis2.jpg" alt="Imagem do Imóvel">
+        <h2>Casa de 3 Quartos</h2>
+        <p>Esta é uma excelente casa localizada em um bairro tranquilo e seguro. Perfeita para famílias, oferece um grande quintal e acesso fácil a comércio e escolas.</p>
+
+        <ul>
+            <li>Localização: Rua Exemplo, 123, Bairro das Flores</li>
+            <li>Preço: R$ 2.500/mês</li>
+            <li>Quartos: 3</li>
+            <li>Banheiros: 2</li>
+            <li>Garagem: 2 vagas</li>
+            <li>Área total: 150m²</li>
+        </ul>
+
+        <!-- Botão para solicitar o aluguel -->
+        <a href="solicitar_aluguel.php" class="solicitar-btn">Solicitar Aluguel</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer_section">
+        <div class="container">
+            <p>&copy; 2024 I.House - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

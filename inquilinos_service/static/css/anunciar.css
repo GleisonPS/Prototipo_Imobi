@@ -1,0 +1,123 @@
+/* Estilo geral */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header com o mesmo estilo do site original */
+.header_section {
+    background-color: #155263;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav li a:hover {
+    background-color: #ff6f3c;
+}
+
+/* Anunciar Casa Section */
+.anunciar_section {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.anunciar_section h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #155263;
+    margin-bottom: 30px;
+}
+
+/* Formulário de Anunciar */
+.anuncio-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #ff6f3c;
+    box-shadow: 0 0 5px rgba(255, 111, 60, 0.5);
+}
+
+.btn-anunciar {
+    width: 100%;
+    padding: 15px;
+    background-color: #155263;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-anunciar:hover {
+    background-color: #ff6f3c;
+}
+
+/* Footer */
+.footer_section {
+    background-color: #155263;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer_section p {
+    font-size: 1em;
+    margin: 0;
+}

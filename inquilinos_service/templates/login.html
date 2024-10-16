@@ -1,35 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Login - I.House</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
-<body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Login</button>
-    </form>
 
-    <!-- Exibir mensagens flash -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        <div class="alert alert-dismissible fade show mt-3" role="alert">
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-            {% endfor %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+<body>
+
+    <!-- Header -->
+    <header class="header_section">
+        <div class="container">
+            <h1>Bem-vindo ao I.House</h1>
         </div>
-    {% endif %}
-{% endwith %}
-    
-    <a href="/">Voltar para o Cadastro</a>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login_section layout_padding">
+        <div class="container">
+            <div class="login_container">
+                <h2>Login</h2>
+                <form action="{{ url_for('login') }}" method="POST">  <!-- Ajuste aqui -->
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="login-btn">Entrar</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="{{ url_for('add_user') }}">Não tem uma conta? Cadastre-se aqui</a>  <!-- Ajuste aqui -->
+                    </div>
+                    <div class="form-group">
+                        <p><a href="forgot-password.html">Esqueci minha senha</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer_section">
+        <div class="container">
+            <p>&copy; 2024 I.House - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
 </body>
+
 </html>
