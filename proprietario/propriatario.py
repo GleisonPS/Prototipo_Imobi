@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, g
+from flask import Flask, render_template, request, redirect, url_for, jsonify, g, session,flash
 import sqlite3
 
 app = Flask(__name__)
 DATABASE = 'ihouse.db'
+app.secret_key = 'ADin!23'  # Defina uma chave secreta única
 
 # Função para conectar ao banco de dados
 def get_db():
@@ -60,11 +61,11 @@ def cadastro():
 def login():
     return render_template('login.html')
 
-@app.route('/painel/<int:proprietario_id>')
-def painel(proprietario_id):
+@app.route('/painel/<int:id>')
+def painel(id):
     db = get_db()
     cursor = db.cursor()
-    cursor.execute('SELECT * FROM imoveis WHERE proprietario_id = ?', (proprietario_id,))
+    cursor.execute('SELECT * FROM imoveis WHERE proprietario_id = ?', (id,))
     imoveis = cursor.fetchall()
 
     imoveis_lista = []
@@ -114,10 +115,19 @@ def login_proprietario():
     cursor.execute('SELECT * FROM proprietarios WHERE email = ? AND senha = ?', (email, senha))
     proprietario = cursor.fetchone()
 
+
     if proprietario:
-        return redirect(url_for('painel', proprietario_id=proprietario[0]))
+        session['id'] = proprietario[0]  # Armazena o ID do proprietário na sessão
+        flash('Bem Vindo(a)!', 'success')
+        return redirect(url_for('painel',id=session['id']))
     else:
-        return "Credenciais inválidas!"
+        flash('Credenciais inválidas!', 'error')
+        return redirect(url_for('login'))
+
+    # if proprietario:
+    #     return redirect(url_for('painel', proprietario_id=proprietario[0]))
+    # else:
+    #     return "Credenciais inválidas!"
 
 # Cadastrar imóveis
 @app.route('/imoveis', methods=['POST'])
@@ -126,7 +136,14 @@ def criar_imovel():
     comodos = request.form['comodos']
     valor = request.form['valor']
     localizacao = request.form['localizacao']
-    proprietario_id = request.form['proprietario_id']  # Obtido no painel
+    
+
+    # Obtém o proprietario_id da sessão
+    proprietario_id = session.get('id')
+
+    if not proprietario_id:
+        flash('Você precisa estar logado para criar um imóvel!', 'danger')
+        return redirect(url_for('login'))
 
     db = get_db()
     cursor = db.cursor()
@@ -137,7 +154,7 @@ def criar_imovel():
     
     db.commit()
     
-    return redirect(url_for('painel', proprietario_id=proprietario_id))
+    return redirect(url_for('painel', id=proprietario_id))
 
 if __name__ == '__main__':
     app.run(debug=True)
