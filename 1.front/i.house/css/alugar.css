@@ -1,0 +1,169 @@
+/* Estilo geral */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header com a mesma formatação enviada */
+.header_section {
+    background-color: #155263;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-nav li {
+    display: inline-block;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav li a:hover {
+    background-color: #ff6f3c;
+}
+
+/* Aluguel de Casas Section */
+.aluguel_section {
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.casa-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.casa-box:hover {
+    transform: scale(1.05);
+}
+
+/* Botão de Favorito */
+.btn-favorito {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.2em;
+    color: #ff6f3c;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-favorito:hover {
+    background-color: #ff6f3c;
+    color: #fff;
+}
+
+.casa-box .img-box {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.casa-box .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.casa-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.casa-info h4 {
+    font-size: 1.4em;
+    color: #155263;
+}
+
+.casa-info .localizacao, .casa-info .valor {
+    font-size: 1.1em;
+    color: #ff6f3c;
+    margin-top: 8px;
+}
+
+.casa-info .descricao {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 8px;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128c7e;
+}
+
+/* Flexbox para organizar as colunas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Mantém espaçamento uniforme entre colunas */
+}
+
+.col-md-4 {
+    flex: 1 1 30%; /* Cada coluna ocupa cerca de 30% da largura da linha */
+    margin: 10px 0; /* Espaçamento vertical entre as colunas */
+    padding: 0 10px; /* Espaçamento horizontal entre as colunas */
+}
+
+/* Responsivo: Ajusta para uma coluna em telas menores */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 1 1 100%; /* Ocupa 100% da largura em telas menores */
+        margin: 10px 0;
+    }
+}
+
+/* Footer */
+.footer_section {
+    background-color: #155263;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer_section p {
+    font-size: 1em;
+    margin: 0;
+}

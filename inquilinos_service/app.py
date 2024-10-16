@@ -85,7 +85,7 @@ def listar_anuncios():
     
     conn.close()
     
-    return render_template("anuncios.html", anuncios=anuncios)  # Passando os anúncios para o template
+    return render_template("alugar.html", anuncios=anuncios)  # Passando os anúncios para o template
 
 
 @app.route('/solicitar_aluguel', methods=['POST'])
@@ -126,9 +126,19 @@ def detalhe_anuncio(id):
         flash('Anúncio não encontrado!', 'error')
         return redirect(url_for('anuncios'))  # Redireciona se o anúncio não for encontrado
     
-    return render_template("detalhe _anuncio.html", anuncio=anuncio)  # Renderiza o template com os detalhes do anúncio
+    return render_template("detalhes.html", anuncio=anuncio)  # Renderiza o template com os detalhes do anúncio
+
+@app.route('/hospedagem')
+def hospedagem():
+    return render_template('hospedagem.html')
+@app.route('/comprar')
+def comprar():
+    return render_template('index.html')
+@app.route('/contato')
+def contato():
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':
     init_db()
-    app.run(port=5001)
+    app.run(port=5001,debug=True)

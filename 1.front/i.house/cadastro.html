@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - I.House</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Login - I.House</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -17,16 +17,12 @@
         </div>
     </header>
 
-    <!-- Cadastro Section -->
+    <!-- Login Section -->
     <section class="login_section layout_padding">
         <div class="container">
             <div class="login_container">
                 <h2>Crie uma conta</h2>
-                <form action="{{ url_for('add_user') }}" method="POST">  <!-- Ajuste aqui -->
-                    <div class="form-group">
-                        <label for="name">Nome:</label>  <!-- Campo para nome -->
-                        <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
-                    </div>
+                <form action="login_process.php" method="POST">
                     <div class="form-group">
                         <label for="email">E-mail:</label>
                         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
@@ -36,8 +32,8 @@
                         <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefone">Telefone:</label>  <!-- Campo para telefone -->
-                        <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                        <label for="password">Repetir senha:</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
                     </div>
                     
                     <div class="form-group">
@@ -45,10 +41,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <p><a href="#">Esqueci minha senha</a></p>
+                        <p><a href="forgot-password.html">Esqueci minha senha</a></p>
                     </div>
                     <div class="form-group">
-                        <p><a href="{{ url_for('login') }}">Já tem uma conta? Entre aqui</a></p>
+                        <p><a href="login.html">Já tem uma conta? Entre aqui</a></p>
                     </div>
                 </form>
             </div>

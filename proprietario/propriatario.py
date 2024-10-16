@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, g, session,flash
-import sqlite3
+impor sqlite3
 
 app = Flask(__name__)
 DATABASE = 'ihouse.db'
