@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, g, session,flash
-import sqlite3
+impor sqlite3
 
 app = Flask(__name__)
 DATABASE = 'ihouse.db'
-app.secret_key = 'sua_chave_secreta_aqui'  # Defina uma chave secreta única
+app.secret_key = 'ADin!23'  # Defina uma chave secreta única
 
 # Função para conectar ao banco de dados
 def get_db():
