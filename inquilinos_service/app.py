@@ -6,6 +6,7 @@ app.secret_key = 'sua_chave_secreta'  # Para usar o flash
 
 def init_db():
     conn = sqlite3.connect('inquilinos.db')
+    conn2 = sqlite3.connect('aluguel.db')
     
     
     c = conn.cursor()
@@ -20,8 +21,23 @@ def init_db():
         )
     ''')
     
+    c2 = conn2.cursor()
+    
+    c2.execute('''
+        CREATE TABLE IF NOT EXISTS aluguel (
+            id INTEGER PRIMARY KEY,
+            anuncio_id INTEGER,
+            inquilino_id INTEGER,
+            FOREIGN KEY (anuncio_id) REFERENCES anuncio(id),
+            FOREIGN KEY (inquilino_id) REFERENCES inquilino(id)
+        )
+    ''')
+
+
     conn.commit()
     conn.close()
+    conn2.commit()
+    conn2.close()
 
 @app.route('/', methods=['GET'])
 def home():
@@ -95,6 +111,22 @@ def solicitar_aluguel():
         conn.close()
     
     return redirect(url_for('home'))  # Redireciona para a página inicial
+
+@app.route('/anuncio/<int:id>', methods=['GET'])
+def detalhe_anuncio(id):
+    conn = sqlite3.connect('ihouse.db')
+    c = conn.cursor()
+    
+    # Busca o anúncio pelo ID
+    c.execute('SELECT * FROM imoveis WHERE id = ?', (id,))
+    anuncio = c.fetchone()
+    conn.close()
+    
+    if anuncio is None:
+        flash('Anúncio não encontrado!', 'error')
+        return redirect(url_for('anuncios'))  # Redireciona se o anúncio não for encontrado
+    
+    return render_template("detalhe _anuncio.html", anuncio=anuncio)  # Renderiza o template com os detalhes do anúncio
 
 
 if __name__ == '__main__':
